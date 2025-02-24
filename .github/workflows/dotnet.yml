@@ -23,6 +23,10 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore src/DotNetAdvancedCICD.sln
     - name: Build
-      run: dotnet build src/DotNetAdvancedCICD.sln --no-restore
-    - name: Test
-      run: dotnet test src/DotNetAdvancedCICD.sln --no-build --verbosity normal
+      run: dotnet build src/DotNetAdvancedCICD.sln --no-restore    
+      
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test
+        run: dotnet test src/DotNetAdvancedCICD.sln --no-build --verbosity normal
